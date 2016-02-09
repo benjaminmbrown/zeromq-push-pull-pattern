@@ -8,6 +8,7 @@ def consumer():
 	context = zmq.Context()
 	#look for work you lazy bum!
 	consumer_receiver = context.socket(zmq.PULL)
+	#each consumer looks for work from the main producer in this example
 	consumer_receiver.connect("tcp://127.0.0.1:5557")
 
 	#did the work, send it off!
