@@ -21,7 +21,7 @@ def consumer():
 		
 		#receiver found some work
 		work = consumer_receiver.recv_json()
-
+		print 'received work : ', work
 		#make the work our own
 		data = work['num']
 
@@ -29,6 +29,7 @@ def consumer():
 		#consumer's id to the data. 
 		result = {'consumer' : consumer_id, 'num' :data}
 		if data%2 == 0:
+			print 'sending work to result collector : ', result
 			consumer_sender.send_json(result)
 
 consumer()

@@ -8,7 +8,10 @@ def producer():
 
 	#results manager and workers start before producers
 	for num in xrange(20000):
+		time.sleep(.025)
+
 		work_message = {'num' : num}
+		print "pushing work", work_message
 		zmq_socket.send_json(work_message)#send the json object off
 
 
